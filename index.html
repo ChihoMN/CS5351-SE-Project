@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KanBased - Minimal Kanban Boards with Instant Sync</title>
+    <meta
+      name="description"
+      content="KanBased is a free, minimal kanban board app with instant real-time sync, keyboard shortcuts, and rich markdown editing. Perfect for teams seeking fast, clutter-free project management. Open source and self-hostable. Trello alternative."
+    />
+    <meta
+      name="keywords"
+      content="kanban board, project management, task management, real-time sync, keyboard shortcuts, markdown, open source, free, team collaboration, minimal, fast, trello alternative, free kanban board, open source kanban board, markdown editor"
+    />
+    <meta name="author" content="KanBased" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#211f26" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://kanbased.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="KanBased - Minimal Kanban Boards with Instant Sync"
+    />
+    <meta
+      property="og:description"
+      content="Free, minimal kanban board app with instant real-time sync, keyboard shortcuts, and rich markdown editing. Perfect for teams seeking fast, clutter-free project management."
+    />
+    <meta property="og:url" content="https://kanbased.com/" />
+    <meta property="og:site_name" content="KanBased" />
+    <meta
+      property="og:image"
+      content="https://kanbased.com/public/app-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="KanBased - Minimal Kanban Boards with Instant Sync"
+    />
+    <meta
+      name="twitter:description"
+      content="Free, minimal kanban board app with instant real-time sync, keyboard shortcuts, and rich markdown editing."
+    />
+    <meta
+      name="twitter:image"
+      content="https://kanbased.com/public/app-image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="KanBased kanban board interface showing columns and tasks"
+    />
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      as="style"
+    />
+    <link rel="preload" href="/style.css" as="style" />
+    <link rel="preload" href="/public/kanbased-app-image.webp" as="image" />
+
+    <script type="module" src="/auth-redirect.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/public/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <link rel="shortcut icon" href="/public/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="KanBased" />
+    <link rel="manifest" href="/public/site.webmanifest" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-brand">
+          <img
+            src="/public/web-app-manifest-512x512.png"
+            alt="KanBased Logo"
+            width="36"
+            height="36"
+          />
+          <span>KanBased</span>
+        </a>
+        <div class="nav-links">
+          <a
+            href="https://app.kanbased.com/login"
+            class="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Log in to KanBased (opens in new tab)"
+            >Log In</a
+          >
+          <a
+            href="https://app.kanbased.com/signup"
+            class="btn btn-primary"
+            rel="noopener noreferrer"
+            aria-label="Sign up for KanBased"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background"></div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <a
+            href="https://github.com/irshathcodes/kanbased"
+            class="hero-badge"
+            target="_blank"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 21L11.8999 20.8499C11.2053 19.808 10.858 19.287 10.3991 18.9098C9.99286 18.5759 9.52476 18.3254 9.02161 18.1726C8.45325 18 7.82711 18 6.57482 18H5.2C4.07989 18 3.51984 18 3.09202 17.782C2.71569 17.5903 2.40973 17.2843 2.21799 16.908C2 16.4802 2 15.9201 2 14.8V6.2C2 5.07989 2 4.51984 2.21799 4.09202C2.40973 3.71569 2.71569 3.40973 3.09202 3.21799C3.51984 3 4.07989 3 5.2 3H5.6C7.84021 3 8.96031 3 9.81596 3.43597C10.5686 3.81947 11.1805 4.43139 11.564 5.18404C12 6.03968 12 7.15979 12 9.4M12 21V9.4M12 21L12.1001 20.8499C12.7947 19.808 13.142 19.287 13.6009 18.9098C14.0071 18.5759 14.4752 18.3254 14.9784 18.1726C15.5467 18 16.1729 18 17.4252 18H18.8C19.9201 18 20.4802 18 20.908 17.782C21.2843 17.5903 21.5903 17.2843 21.782 16.908C22 16.4802 22 15.9201 22 14.8V6.2C22 5.07989 22 4.51984 21.782 4.09202C21.5903 3.71569 21.2843 3.40973 20.908 3.21799C20.4802 3 19.9201 3 18.8 3H18.4C16.1598 3 15.0397 3 14.184 3.43597C13.4314 3.81947 12.8195 4.43139 12.436 5.18404C12 6.03968 12 7.15979 12 9.4"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <span>Free & Open Source</span>
+          </a>
+          <h1 class="hero-title">Minimal Kanban Boards with instant sync</h1>
+          <p class="hero-description">
+            A fast, keyboard-driven kanban app that updates instantly. No
+            loading spinners, no refresh needed. Your boards stay in perfect
+            sync with rich markdown editing and seamless collaboration.
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="https://app.kanbased.com/signup"
+              class="btn btn-primary btn-large"
+            >
+              Get Started - It's free
+            </a>
+          </div>
+        </div>
+
+        <section class="app-image-section scroll-element-scale">
+          <img
+            class="app-image"
+            src="/public/kanbased-app-image.webp"
+            alt="KanBased App Image"
+          />
+        </section>
+      </div>
+    </section>
+
+    <section id="features" class="section scroll-element">
+      <div class="section-content">
+        <h2 class="section-title">
+          <span class="feature-icon">🔄</span>
+          Always in Sync
+        </h2>
+        <p class="section-description">
+          Your boards automatically stay synchronized. No refresh needed. The
+          sync engine handles everything seamlessly.
+        </p>
+      </div>
+
+      <div class="section-video-container scroll-element-scale">
+        <video
+          src="/public/always-in-sync.mp4"
+          autoplay
+          muted
+          loop
+          loading="lazy"
+          preload="none"
+          class="section-video"
+          aria-label="Video demonstration of KanBased's real-time sync feature"
+        ></video>
+      </div>
+    </section>
+
+    <section
+      class="section scroll-element"
+      aria-labelledby="keyboard-feature-title"
+    >
+      <div class="section-content">
+        <h2 id="keyboard-feature-title" class="section-title">
+          <span class="feature-icon" aria-hidden="true">⌨️</span>
+          Keyboard Shortcuts
+        </h2>
+        <p class="section-description">
+          Access all core features with keyboard shortcuts. Navigate, create,
+          and manage tasks without touching your mouse.
+        </p>
+      </div>
+
+      <div class="section-video-container scroll-element-scale">
+        <video
+          src="/public/keyboard-shortcuts.mp4"
+          autoplay
+          muted
+          loop
+          loading="lazy"
+          preload="none"
+          class="section-video"
+          aria-label="Video demonstration of KanBased's keyboard shortcuts"
+        ></video>
+      </div>
+    </section>
+
+    <section
+      class="section scroll-element"
+      aria-labelledby="markdown-feature-title"
+    >
+      <div class="section-content">
+        <h2 id="markdown-feature-title" class="section-title">
+          <span class="feature-icon" aria-hidden="true">📝</span>
+          Rich Markdown Editing
+        </h2>
+        <p class="section-description">
+          Edit your boards with rich markdown editing. Add todo items, links,
+          and more.
+        </p>
+      </div>
+
+      <div class="section-video-container scroll-element-scale">
+        <video
+          src="/public/markdown.mp4"
+          autoplay
+          muted
+          loop
+          loading="lazy"
+          preload="none"
+          class="section-video"
+          aria-label="Video demonstration of KanBased's markdown editing features"
+        ></video>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section
+      class="features scroll-element-fade"
+      aria-labelledby="features-section-title"
+    >
+      <div class="container">
+        <div class="section-header">
+          <h2 id="features-section-title" class="section-title">
+            And much more...
+          </h2>
+          <p class="section-description">
+            Despite its minimal approach, KanBased includes everything you need
+            to get started. Being open source, you can contribute missing
+            features or simply enjoy the useful features that keep being added.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card scroll-element-scale scroll-element-delay-1">
+            <div class="feature-card-background"></div>
+            <div class="feature-icon" aria-hidden="true">📝</div>
+            <h3 class="feature-title">Rich Notes</h3>
+            <p class="feature-description">
+              Beyond boards, capture ideas and documentation with our built-in
+              rich markdown editor. Take notes, write docs, all in one place.
+            </p>
+          </div>
+
+          <div class="feature-card scroll-element-scale scroll-element-delay-2">
+            <div class="feature-card-background"></div>
+            <div class="feature-icon" aria-hidden="true">👥</div>
+            <h3 class="feature-title">Team Collaboration</h3>
+            <p class="feature-description">
+              Create workspaces, invite team members, assign roles, and
+              collaborate on boards in real-time.
+            </p>
+          </div>
+
+          <div class="feature-card scroll-element-scale scroll-element-delay-3">
+            <div class="feature-card-background"></div>
+            <div class="feature-icon" aria-hidden="true">⚡</div>
+            <h3 class="feature-title">Instant Updates</h3>
+            <p class="feature-description">
+              Built on a sync engine, not REST APIs. Changes appear instantly
+              across all devices with no loading spinners.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section
+      class="benefits scroll-element-slide-left"
+      aria-labelledby="benefits-title"
+    >
+      <div class="container">
+        <div class="benefits-content">
+          <div class="benefits-text">
+            <h2 id="benefits-title" class="benefits-title">
+              Why you'll love KanBased
+            </h2>
+            <ul class="benefits-list">
+              <li class="benefit-item scroll-element scroll-element-delay-1">
+                <div class="benefit-icon" aria-hidden="true">⚡</div>
+                <div class="benefit-content">
+                  <strong>Save 30+ seconds per task:</strong> No more waiting
+                  for pages to load or data to refresh - every action is instant
+                </div>
+              </li>
+              <li class="benefit-item scroll-element scroll-element-delay-2">
+                <div class="benefit-icon" aria-hidden="true">🧠</div>
+                <div class="benefit-content">
+                  <strong>Stay in your flow state:</strong> Keyboard shortcuts
+                  keep your hands on the keys and your mind focused on what
+                  matters
+                </div>
+              </li>
+              <li class="benefit-item scroll-element scroll-element-delay-3">
+                <div class="benefit-icon" aria-hidden="true">🔄</div>
+                <div class="benefit-content">
+                  <strong>Never lose work again:</strong> Real-time sync means
+                  your changes are saved and shared instantly - no "save" button
+                  needed
+                </div>
+              </li>
+              <li class="benefit-item scroll-element scroll-element-delay-4">
+                <div class="benefit-icon" aria-hidden="true">💰</div>
+                <div class="benefit-content">
+                  <strong>Zero vendor lock-in:</strong> Free forever, open
+                  source, and you can self-host if needed
+                </div>
+              </li>
+              <li class="benefit-item scroll-element scroll-element-delay-5">
+                <div class="benefit-icon" aria-hidden="true">🚀</div>
+                <div class="benefit-content">
+                  <strong>Get your team onboard in minutes:</strong> Clean
+                  interface means zero training time - just invite and start
+                  collaborating
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq scroll-element-slide-right" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faq-title" class="section-title">
+            Frequently Asked Questions
+          </h2>
+          <p class="section-description">
+            Everything you need to know about KanBased to get started.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <details class="faq-item">
+            <summary class="faq-question">
+              Why should I use KanBased instead of Trello or any feature rich
+              apps?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                I built KanBased because I was frustrated with the bloat and
+                complexity of other kanban apps. For me navigating the app using
+                keyboard shortcuts is a must have. I wanted a very minimal,
+                fast, and open-source kanban board that I could use myself and
+                share with my friends.
+              </p>
+              <p>
+                I'm not trying to compete with Trello or any other feature rich
+                apps.
+              </p>
+
+              <p>
+                If you feel the vibe I'm going for, you can give it a try and
+                see if it works for you 🙂
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Is KanBased really free?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes, KanBased is completely free to use.
+                <a
+                  href="https://github.com/irshathcodes/kanbased"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View KanBased source code on GitHub (opens in new tab)"
+                  >It's open source software</a
+                >
+                with MIT license that you can use for personal and commercial
+                projects without any limitations. Although do note that we
+                cannot support large usage. You can self-host the entire
+                application if you want to support large usage.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              How does the instant sync work?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                KanBased uses a modern sync engine instead of traditional REST
+                APIs. When you make changes, they're immediately propagated to
+                all connected devices in real-time. No refresh buttons, no
+                loading spinners - just instant updates across all your devices.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Can I use KanBased offline?</summary>
+            <div class="faq-answer">
+              <p>
+                While it's possible to read your boards / notes offline, it's
+                not yet enabled at the moment
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              How many team members can I invite?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                There are no limits on team size. But we recommend keeping it
+                small since it's open source and free to use. You can self-host
+                the entire application if you want to support large teams.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How do I get support?</summary>
+            <div class="faq-answer">
+              <p>
+                You can get help through our
+                <a
+                  href="https://github.com/irshathcodes/kanbased/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Report issues or request features on GitHub (opens in new tab)"
+                >
+                  GitHub issues</a
+                >
+                for bug reports and feature requests. For general questions,
+                email me at
+                <a href="mailto:irshath700@gmail.com">irshath700@gmail.com</a>
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="get-started" class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-content">
+          <h2 id="cta-title" class="cta-title">Try KanBased for free</h2>
+          <p class="cta-description">
+            Create your free account with Google, GitHub or email to give it a
+            try. It's free to use for small usage. You can self-host the entire
+            application if you want to support large usage.
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="https://app.kanbased.com"
+              class="btn btn-primary btn-large"
+              rel="noopener noreferrer"
+              aria-label="Open KanBased application"
+            >
+              Open KanBased
+            </a>
+
+            <a
+              href="https://github.com/irshathcodes/kanbased"
+              class="btn btn-outline btn-large"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View KanBased source code on GitHub (opens in new tab)"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <span class="logo">KanBased</span>
+            <p class="footer-description">
+              A fast, keyboard-driven kanban app that updates instantly. No
+              loading spinners, no refresh needed.
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Product</h4>
+              <a href="#features">Features</a>
+              <a
+                href="https://app.kanbased.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Log in to KanBased (opens in new tab)"
+                >Log In</a
+              >
+              <a
+                href="https://app.kanbased.com/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sign up for KanBased (opens in new tab)"
+                >Sign Up</a
+              >
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <a
+                href="https://github.com/irshathcodes/kanbased"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View KanBased on GitHub (opens in new tab)"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="year"></span> KanBased. Open source and free to
+            use.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/index.js"></script>
+  </body>
+</html>
